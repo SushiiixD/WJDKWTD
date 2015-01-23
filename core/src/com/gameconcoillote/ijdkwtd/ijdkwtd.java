@@ -44,6 +44,7 @@ public class ijdkwtd extends Game{
             }
             System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
         }
+    }
         
         	/*@Override
 	public void render () {
@@ -53,5 +54,4 @@ public class ijdkwtd extends Game{
 		batch.draw(img, 0, 0);
 		batch.end();
 	}*/
-    }
 }
