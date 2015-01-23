@@ -27,3 +27,4 @@ public class ijdkwtd extends ApplicationAdapter {
 		batch.end();
 	}
 }
+
