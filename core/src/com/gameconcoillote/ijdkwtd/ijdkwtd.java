@@ -22,7 +22,6 @@ public class ijdkwtd extends Game
     {
         inGameScreen = new InGameScreen();
         this.setScreen(inGameScreen);
-        
         // for testing
         /*Texture img = new Texture(Gdx.files.internal("badlogic.jpg"));
         Entity abc = new Entity(img);
