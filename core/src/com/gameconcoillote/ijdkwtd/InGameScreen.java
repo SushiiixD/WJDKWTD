@@ -13,7 +13,7 @@ public class InGameScreen implements Screen{
     private SpriteBatch batch;
     private BitmapFont font;
     
-    ArrayList<Entity> entities = new ArrayList<Entity>();
+
     @Override
     public void render(float delta) {
          
@@ -22,13 +22,7 @@ public class InGameScreen implements Screen{
         batch.begin();
         font.draw(batch, "Bienvenue dans WJDKWTD",50,Gdx.graphics.getHeight()-50);
         batch.end();  
-        
-        
-        for(Entity e: entities)
-        {
-        	e.update();
-        	e.draw();
-        }
+
     }
      
     @Override

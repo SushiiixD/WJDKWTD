@@ -19,6 +19,9 @@ public class ijdkwtd extends Game{
         Entity abc = new Entity(img);
         abc.move(10,5);
         entities.add(abc);*/
+        
+        Player p = new Player();
+        entities.add(p);
     }
 
     @Override
