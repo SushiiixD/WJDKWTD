@@ -17,8 +17,9 @@ public class ijdkwtd extends ApplicationAdapter {
 	@Override
 	public void create () {
 		img = new Texture("badlogic.jpg");
-		Entity test = new Entity(img);
+		Entity test = new Entity(img,100,100);
 		entities.add(test);
+		
 	}
 
 	@Override
