@@ -1,10 +1,9 @@
-
 package com.gameconcoillote.ijdkwtd;
 
 import java.util.ArrayList;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+
 
 public class ijdkwtd extends Game{
 	Screen inGameScreen;
@@ -26,4 +25,3 @@ public class ijdkwtd extends Game{
         }
     }
 }
-
