@@ -19,7 +19,7 @@ public class DesktopLauncher {
 		config.title="GAME JAM: IJDKWIAD";
 		config.width=WIDTH;
 		config.height=HEIGHT;
-
+		
 		new LwjglApplication(new ijdkwtd(), config);
 		
 		
