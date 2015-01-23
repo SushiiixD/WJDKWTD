@@ -1,6 +1,8 @@
+
 package com.gameconcoillote.ijdkwtd;
 
 import java.util.ArrayList;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 

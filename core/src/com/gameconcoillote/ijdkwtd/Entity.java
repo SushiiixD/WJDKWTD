@@ -43,10 +43,17 @@ public class Entity
 		sprite.end();
 	}
 	
+	public void move(int x, int y)
+	{
+		this.move.x = x;
+		this.move.y = y;
+	}
+	
+	
 	public void update()
 	{
-		this.box.x += this.speed.x;
-		this.box.y += this.speed.y;
+		this.box.x += this.move.x;
+		this.box.y += this.move.y;
 	}
 	
 	
