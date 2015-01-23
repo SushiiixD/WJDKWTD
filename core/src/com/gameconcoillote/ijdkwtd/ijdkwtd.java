@@ -17,6 +17,7 @@ public class ijdkwtd extends ApplicationAdapter {
 	@Override
 	public void create () {
 		img = new Texture("badlogic.jpg");
+		
 		Entity test = new Entity(img,100,100);
 		entities.add(test);
 		
@@ -30,6 +31,7 @@ public class ijdkwtd extends ApplicationAdapter {
 		
 		for(Entity e: this.entities)
 		{
+			e.update();
 			e.draw();
 		}
 		
