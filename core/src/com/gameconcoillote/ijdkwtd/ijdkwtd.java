@@ -13,6 +13,7 @@ public class ijdkwtd extends ApplicationAdapter {
 	Texture img;
 	ArrayList<Entity> entities = new ArrayList<Entity>();
 	
+
 	@Override
 	public void create () {
 		img = new Texture("badlogic.jpg");
@@ -24,6 +25,7 @@ public class ijdkwtd extends ApplicationAdapter {
 	public void render () {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
 		
 		for(Entity e: this.entities)
 		{
@@ -33,5 +35,6 @@ public class ijdkwtd extends ApplicationAdapter {
 		
 		
 		
+
 	}
 }
