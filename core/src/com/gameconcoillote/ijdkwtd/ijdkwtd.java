@@ -39,22 +39,14 @@ public class ijdkwtd extends Game{
         	e.draw();
         }
 
-<<<<<<< HEAD
-        if(Gdx.input.isTouched()) {
-            /*try {
-                Thread.sleep(200);
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }*/
-            System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
-=======
+
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
             if (mouseLeftClickedPositionX != Gdx.input.getX() || mouseLeftClickedPositionY != Gdx.input.getY()) {
                 mouseLeftClickedPositionX = Gdx.input.getX();
                 mouseLeftClickedPositionY = Gdx.input.getY();
                 System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
             }
->>>>>>> 20e4937f3236f1bb2bff5a510752bebe690be62c
+
         }
     }
         

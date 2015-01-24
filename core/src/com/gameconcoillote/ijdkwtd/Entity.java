@@ -28,7 +28,6 @@ public class Entity
 	public Entity(Texture t,int x,int y)
 	{
 		this.texture = new AnimatedTexture(t);
-		//this.texture.addTexture(t);
 		
 		this.sprite = new SpriteBatch();
 		this.box = new Rectangle(x,y,0,0);
