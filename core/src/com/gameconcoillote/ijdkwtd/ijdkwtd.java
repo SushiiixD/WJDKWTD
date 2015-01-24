@@ -10,25 +10,29 @@ import com.badlogic.gdx.Gdx;
 
 
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Texture;
 
 
 public class ijdkwtd extends Game implements InputProcessor{
 	Screen inGameScreen;
 	private ArrayList<Entity> entities = new  ArrayList<Entity>();
-	//private Player player = new Player();
+	private ArrayList<Background> level = new  ArrayList<Background>();
+	private Player player;
+	
     //main game loop time
     private int dt;
-    private Player player;
+    
     
     @Override
     public void create () {
         inGameScreen = new InGameScreen();
-        this.setScreen(inGameScreen);
-        //Player player = new Player();
-      
+
+        //player
         this.player = new Player();
         entities.add(this.player);
         
+        //background
+        level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
 
         Gdx.input.setInputProcessor(this);
     }
@@ -38,7 +42,14 @@ public class ijdkwtd extends Game implements InputProcessor{
     {       
     	
     	this.dt =(int)(System.currentTimeMillis() - this.dt);
+    	
         super.render();
+        
+        for(Background bg: this.level)
+        {
+        	bg.update(this.dt);
+        	bg.draw();
+        }
         
         for(Entity e: entities)
         {
@@ -46,8 +57,9 @@ public class ijdkwtd extends Game implements InputProcessor{
         	e.draw();
         }
         
+        
+        
         this.dt = (int)System.currentTimeMillis();
-       
 
         
     }
@@ -59,10 +71,12 @@ public class ijdkwtd extends Game implements InputProcessor{
     	{
     	case Keys.RIGHT:
     		this.player.move(700, 0);
+    		this.player.changeAnimation(1);;
     		break;
     		
     	case Keys.LEFT:
     		this.player.move(-700, 0);
+    		this.player.changeAnimation(2);;
     		break;
     		
     	default:
@@ -77,23 +91,22 @@ public class ijdkwtd extends Game implements InputProcessor{
     	
     	switch(keycode)
     	{
-    	case Keys.RIGHT:
-    		this.player.move(0, 0);
-    		break;
-    		
+    	
+    	case Keys.RIGHT:		
     	case Keys.LEFT:
     		this.player.move(0, 0);
-    		break;
-    		
-    	case Keys.A:
     		this.player.changeAnimation(0);;
     		break;
     		
-    	case Keys.Z:
-    		this.player.changeAnimation(1);;
+    	case Keys.ESCAPE:
+    		System.out.println(this.dt);
     		break;
     		
+
+    		
     	default:
+    		this.player.move(0, 0);
+    		this.player.changeAnimation(0);;
     		break;
     	}
     	

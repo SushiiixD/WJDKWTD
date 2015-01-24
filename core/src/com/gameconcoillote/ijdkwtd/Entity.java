@@ -60,10 +60,12 @@ public class Entity
 	public void update(int dt)
 	{
 		//compute the speed  considering the gameloop
-		if(dt < 100000)//avoid dt error (if too big it cause bugs)
+		if(dt < 1000)//avoid dt error (if too big it will cause bugs)
 		{
 			this.box.x += (this.move.x * dt)/1000;
 			this.box.y += (this.move.y * dt)/1000;
+			
+			System.out.println((this.move.x * dt)/1000 + " " + dt);
 		}
 		
 	}
@@ -75,6 +77,11 @@ public class Entity
 			this.currentAnim = animIndex;
 		}
 		
+	}
+	
+	public AnimatedTexture getAnim(int animIndex)
+	{
+		return this.textures.get(animIndex);
 	}
 	
 	public void addTextureInAnim(Texture t,int animIndex)

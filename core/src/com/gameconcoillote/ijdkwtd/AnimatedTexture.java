@@ -33,6 +33,11 @@ public class AnimatedTexture implements Runnable
 		
 	}
 	
+	public void setDelay(int d)
+	{
+		this.delay = d;
+	}
+	
 	public void update()
 	{
 		
