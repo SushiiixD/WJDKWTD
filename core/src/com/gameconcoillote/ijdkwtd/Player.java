@@ -2,13 +2,20 @@ package com.gameconcoillote.ijdkwtd;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 
 public class Player extends Entity
 {
 
+	//where the player have to go
+	private Vector2 dest = new Vector2(125,0);//to make him not to walk
+	//distance where the player stop trying to reach the dest
+	private int prec = 5;
+		
 	public Player() {
 		this(0,0);
-		
+		this.box.width = 250;
+		this.box.height = 163;
 	}
 	
 	public Player(int x,int y)
@@ -76,6 +83,35 @@ public class Player extends Entity
 		super.addTextureInAnim(new Texture(Gdx.files.internal("nope7.png")),0);
 		super.addTextureInAnim(new Texture(Gdx.files.internal("nope8.png")),0);*/
 		
+		
+	}
+	
+	public void move(int x,int y)
+	{
+		this.dest.x = x;
+		this.dest.y = y;
+	}
+	
+	public void update(int dt)
+	{
+		if(this.box.x+this.box.width/2 < this.dest.x - this.prec)
+		{
+			this.move.x = this.speed.x;
+			this.changeAnimation(1);
+		}
+		else if(this.box.x +this.box.width/2> this.dest.x + this.prec)
+		{
+			this.move.x = -this.speed.x;
+			this.changeAnimation(2);
+		}
+		else
+		{
+			this.move.x = 0;
+			this.changeAnimation(0);
+		}
+		
+		
+		super.update(dt);
 		
 	}
 	

@@ -13,7 +13,7 @@ public class Entity
 {
 
 	//the box around the entity
-	private Rectangle box;
+	protected Rectangle box;
 	//the picture of the entity
 	protected ArrayList<AnimatedTexture> textures = new ArrayList<AnimatedTexture>();
 	//the current animation
@@ -21,9 +21,9 @@ public class Entity
 	//the sprite of the entity
 	private SpriteBatch sprite;
 	//max movement speed
-	private Vector2 speed;
+	protected Vector2 speed;
 	//current movement speed
-	private Vector2 move;
+	protected Vector2 move;
 	
 	public Entity(Texture t)
 	{
@@ -38,7 +38,7 @@ public class Entity
 		this.sprite = new SpriteBatch();
 		
 		this.box = new Rectangle(x,y,0,0);
-		this.speed = new Vector2(5,5);//default speed of 5px/s
+		this.speed = new Vector2(100,100);//default speed of 5px/s
 		this.move = new Vector2(0,0);
 		
 	}
