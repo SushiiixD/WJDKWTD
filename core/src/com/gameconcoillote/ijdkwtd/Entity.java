@@ -1,5 +1,8 @@
 package com.gameconcoillote.ijdkwtd;
 
+import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -11,7 +14,9 @@ public class Entity
 	//the box around the entity
 	private Rectangle box;
 	//the picture of the entity
-	protected AnimatedTexture texture;
+	protected ArrayList<AnimatedTexture> textures = new ArrayList<AnimatedTexture>();
+	//the current animation
+	protected int currentAnim;
 	//the sprite of the entity
 	private SpriteBatch sprite;
 	//max movement spped
@@ -27,8 +32,8 @@ public class Entity
 	
 	public Entity(Texture t,int x,int y)
 	{
-		this.texture = new AnimatedTexture(t);
-		
+		this.textures .add(new AnimatedTexture(t));
+		this.currentAnim = 0;
 		this.sprite = new SpriteBatch();
 		this.box = new Rectangle(x,y,0,0);
 		this.speed = new Vector2(5,5);//default speed of 5px/s
@@ -40,7 +45,7 @@ public class Entity
 	public void draw()
 	{
 		sprite.begin();
-		sprite.draw(this.texture.getCurrentTexture(), box.x, box.y);
+		sprite.draw(this.textures.get(this.currentAnim).getCurrentTexture(), box.x, box.y);
 		sprite.end();
 	}
 	
@@ -61,6 +66,27 @@ public class Entity
 			this.box.y += (this.move.y * dt)/1000;
 		}
 		
+	}
+	
+	public void changeAnimation(int animIndex)
+	{
+		if(animIndex < this.textures.size())
+		{
+			this.currentAnim = animIndex;
+		}
+		
+	}
+	
+	public void addTextureInAnim(Texture t,int animIndex)
+	{
+		if(animIndex < this.textures.size())
+		{
+			this.textures.get(animIndex).addTexture(t);
+		}
+		else//in case we try to access to a none definited animation
+		{
+			this.textures.add(new AnimatedTexture(t));
+		}
 	}
 	
 	

@@ -14,7 +14,7 @@ public class Player extends Entity
 	public Player(int x,int y)
 	{
 		super(new Texture(Gdx.files.internal("animWalk/Walk-Character1.png")),x,y);
-		
+		/*
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character2.png")));
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character3.png")));
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character3-2.png")));
@@ -22,7 +22,16 @@ public class Player extends Entity
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character4.png")));
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character5.png")));
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character5-1.png")));
+		*/
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character2.png")),0);
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character3.png")),0);
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character3.png")),0);
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character3.png")),0);
 		
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character2.png")),1);
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character3.png")),1);
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character2.png")),1);
+		super.addTextureInAnim(new Texture(Gdx.files.internal("animWalk/Walk-Character3.png")),1);
 		//this.move(700,0);
 	}
 	

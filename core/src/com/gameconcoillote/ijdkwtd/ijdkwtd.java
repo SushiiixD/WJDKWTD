@@ -85,6 +85,14 @@ public class ijdkwtd extends Game implements InputProcessor{
     		this.player.move(0, 0);
     		break;
     		
+    	case Keys.A:
+    		this.player.changeAnimation(0);;
+    		break;
+    		
+    	case Keys.Z:
+    		this.player.changeAnimation(1);;
+    		break;
+    		
     	default:
     		break;
     	}
@@ -94,13 +102,13 @@ public class ijdkwtd extends Game implements InputProcessor{
 
     @Override
     public boolean keyTyped(char character) {
-        System.out.println("Key pressed: " + character);
+        //System.out.println("Key pressed: " + character);
         return false;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        System.out.println("Mouse coords:" + screenX + " " + screenY);
+        //System.out.println("Mouse coords:" + screenX + " " + screenY);
         return false;
     }
 

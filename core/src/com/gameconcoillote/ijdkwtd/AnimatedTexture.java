@@ -24,6 +24,8 @@ public class AnimatedTexture implements Runnable
 		
 	}
 	
+
+	
 	public AnimatedTexture(Texture t)
 	{
 		this(t,100);
