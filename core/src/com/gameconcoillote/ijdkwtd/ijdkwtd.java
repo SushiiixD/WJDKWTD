@@ -14,18 +14,20 @@ public class ijdkwtd extends Game implements InputProcessor{
     @Override
     public void create(){
         inGameScreen = new InGameScreen(this);
-        Gdx.input.setInputProcessor(this);       
+        Gdx.input.setInputProcessor(this);
+        setScreen(inGameScreen);
 
     }
-    @Override
-    public void render(){       
+
+    /*@Override
+    public void render(){
     	Gdx.graphics.getGL20().glClearColor( 1, 0, 0, 1 );
-    	Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );   	  
-    	this.dt =(int)(System.currentTimeMillis() - this.dt);    	
+    	Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );
+    	this.dt =(int)(System.currentTimeMillis() - this.dt);
         super.render();
-        this.inGameScreen.render(dt);        
-        this.dt = (int)System.currentTimeMillis();      
-    }
+        this.inGameScreen.render(dt);
+        this.dt = (int)System.currentTimeMillis();
+    }*/
     @Override
     public boolean keyDown(int keycode){
         return false;
@@ -42,12 +44,18 @@ public class ijdkwtd extends Game implements InputProcessor{
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button){
         //System.out.println("Mouse coords:" + screenX + " " + screenY);
-    	((InGameScreen) this.inGameScreen).getPlayer().move(screenX, screenY);
+
+        if(getScreen().getClass().getName().compareTo("com.gameconcoillote.ijdkwtd.InGameScreen") == 0){
+
+            ((InGameScreen) this.inGameScreen).getPlayer().move(screenX, screenY);
+        }
         return false;
     }
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button){
-    	((InGameScreen) this.inGameScreen).getPlayer().changeAnimation(0);
+        if(getScreen().getClass().getName().compareTo("com.gameconcoillote.ijdkwtd.InGameScreen") == 0) {
+            ((InGameScreen) this.inGameScreen).getPlayer().changeAnimation(0);
+        }
         return false;
     }
     @Override

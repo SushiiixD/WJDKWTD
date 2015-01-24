@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -25,7 +26,10 @@ public class InGameScreen implements Screen{
 	}	 
 
     @Override
-    public void render(float delta){       
+    public void render(float delta){
+		delta *= 1000;
+		Gdx.graphics.getGL20().glClearColor( 1, 0, 0, 1 );
+		Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );
     	for(Background bg: this.level){
         	bg.update((int)delta);
         	bg.draw(this.batch);
