@@ -2,6 +2,7 @@ package com.gameconcoillote.ijdkwtd;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,8 +15,9 @@ public class InGameScreen implements Screen{
 	private ArrayList<Background> level = new  ArrayList<Background>();
 	private Player player;
 	private SpriteBatch batch = new SpriteBatch();
+	private Game g;
 	
-	    public InGameScreen()
+	    public InGameScreen(Game g)
 	    {
 	        //player
 	        this.player = new Player();
@@ -23,7 +25,7 @@ public class InGameScreen implements Screen{
 	        
 	        //background
 	        level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
-
+	        this.g = g;
 	    }
 	 
     @Override
@@ -41,6 +43,8 @@ public class InGameScreen implements Screen{
         	e.update((int)delta);
         	e.draw(this.batch);
         }
+        
+        g.setScreen(null);
 
     }
      

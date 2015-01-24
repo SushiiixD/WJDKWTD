@@ -13,8 +13,9 @@ public class ijdkwtd extends Game implements InputProcessor{
       
     @Override
     public void create(){
-        inGameScreen = new InGameScreen();
-        Gdx.input.setInputProcessor(this);       
+        inGameScreen = new InGameScreen(this);
+        Gdx.input.setInputProcessor(this); 
+        this.setScreen(inGameScreen);
     }
     @Override
     public void render(){       
@@ -22,7 +23,7 @@ public class ijdkwtd extends Game implements InputProcessor{
     	Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );   	  
     	this.dt =(int)(System.currentTimeMillis() - this.dt);    	
         super.render();
-        this.inGameScreen.render(dt);        
+        //this.inGameScreen.render(dt);        
         this.dt = (int)System.currentTimeMillis();      
     }
     @Override
