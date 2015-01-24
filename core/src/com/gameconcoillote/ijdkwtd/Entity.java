@@ -2,9 +2,7 @@ package com.gameconcoillote.ijdkwtd;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -57,8 +55,7 @@ public class Entity
 		this.move.x = x;
 		this.move.y = y;
 	}
-	
-	
+
 	public void update(int dt)
 	{
 		//compute the speed  considering the gameloop
@@ -66,8 +63,6 @@ public class Entity
 		{
 			this.box.x += (this.move.x * dt)/1000;
 			this.box.y += (this.move.y * dt)/1000;
-			
-			
 		}
 		
 	}

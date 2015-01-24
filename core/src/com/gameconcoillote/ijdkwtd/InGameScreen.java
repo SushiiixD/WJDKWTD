@@ -16,7 +16,6 @@ public class InGameScreen implements Screen{
 	
 	    public InGameScreen()
 	    {
-
 	        //player
 	        this.player = new Player();
 	        entities.add(this.player);
@@ -57,7 +56,7 @@ public class InGameScreen implements Screen{
  
     @Override
     public void show() {
-        
+		// TODO Auto-generated method stub
     }
 
 	@Override

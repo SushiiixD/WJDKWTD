@@ -9,7 +9,7 @@ public class Player extends Entity
 
 	//where the player have to go
 	private Vector2 dest = new Vector2(125,0);//to make him not to walk
-	//distance where the player stop trying to reach the dest
+											  //distance where the player stop trying to reach the dest
 	private int prec = 5;
 		
 	public Player() {
@@ -22,8 +22,7 @@ public class Player extends Entity
 	{
 		super(new Texture(Gdx.files.internal("anim_wait_mini/wait1.png")),x,y);
 		
-		//iddle
-		
+		//idle
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_wait_mini/wait1.png")),0);
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_wait_mini/wait2.png")),0);
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_wait_mini/wait3.png")),0);
@@ -53,8 +52,6 @@ public class Player extends Entity
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_walk_right_mini/Walk13.png")),1);
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_walk_right_mini/Walk14.png")),1);
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_walk_right_mini/Walk15.png")),1);
-		
-
 		
 		//walk left
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_walk_left_mini/Walk1.png")),2);
@@ -109,10 +106,7 @@ public class Player extends Entity
 			this.move.x = 0;
 			this.changeAnimation(0);
 		}
-		
-		
+
 		super.update(dt);
-		
 	}
-	
 }
