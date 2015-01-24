@@ -10,6 +10,7 @@ import com.badlogic.gdx.Gdx;
 
 
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 
 
@@ -35,12 +36,16 @@ public class ijdkwtd extends Game implements InputProcessor{
         level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
 
         Gdx.input.setInputProcessor(this);
+        
+       
     }
 
     @Override
     public void render()
     {       
-    	
+    	Gdx.graphics.getGL20().glClearColor( 1, 0, 0, 1 );
+    	Gdx.graphics.getGL20().glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT );
+    	  
     	this.dt =(int)(System.currentTimeMillis() - this.dt);
     	
         super.render();
@@ -99,7 +104,7 @@ public class ijdkwtd extends Game implements InputProcessor{
     		break;
     		
     	case Keys.ESCAPE:
-    		System.out.println(this.dt);
+ 
     		break;
     		
 

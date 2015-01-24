@@ -28,7 +28,7 @@ public class Player extends Entity
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_wait_mini/wait9.png")),0);
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_wait_mini/wait10.png")),0);
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_wait_mini/wait11.png")),0);
-		super.getAnim(0).setDelay(500);
+		super.getAnim(0).setDelay(200);
 		
 		//walk right
 		super.addTextureInAnim(new Texture(Gdx.files.internal("anim_walk_right_mini/Walk1.png")),1);

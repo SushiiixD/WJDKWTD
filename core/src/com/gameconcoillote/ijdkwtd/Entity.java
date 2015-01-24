@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -35,6 +36,7 @@ public class Entity
 		this.textures .add(new AnimatedTexture(t));
 		this.currentAnim = 0;
 		this.sprite = new SpriteBatch();
+		
 		this.box = new Rectangle(x,y,0,0);
 		this.speed = new Vector2(5,5);//default speed of 5px/s
 		this.move = new Vector2(0,0);
@@ -65,7 +67,7 @@ public class Entity
 			this.box.x += (this.move.x * dt)/1000;
 			this.box.y += (this.move.y * dt)/1000;
 			
-			System.out.println((this.move.x * dt)/1000 + " " + dt);
+			
 		}
 		
 	}
