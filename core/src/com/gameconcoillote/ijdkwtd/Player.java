@@ -23,7 +23,7 @@ public class Player extends Entity
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character5.png")));
 		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character5-1.png")));
 		
-		this.move(700,0);
+		//this.move(700,0);
 	}
 	
 }

@@ -3,6 +3,7 @@ package com.gameconcoillote.ijdkwtd;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Gdx;
 //import com.badlogic.gdx.Input;
@@ -14,22 +15,20 @@ import com.badlogic.gdx.InputProcessor;
 public class ijdkwtd extends Game implements InputProcessor{
 	Screen inGameScreen;
 	private ArrayList<Entity> entities = new  ArrayList<Entity>();
-
-    //private int mouseTimer;
-    //private int mouseDelay;
+	//private Player player = new Player();
     //main game loop time
     private int dt;
+    private Player player;
     
     @Override
     public void create () {
         inGameScreen = new InGameScreen();
         this.setScreen(inGameScreen);
+        //Player player = new Player();
+      
+        this.player = new Player();
+        entities.add(this.player);
         
-        Player p = new Player();
-        entities.add(p);
-        
-        //this.mouseTimer = (int)System.currentTimeMillis();
-        //this.mouseDelay = 200;
 
         Gdx.input.setInputProcessor(this);
     }
@@ -46,17 +45,6 @@ public class ijdkwtd extends Game implements InputProcessor{
         	e.update(this.dt);
         	e.draw();
         }
-
-
-        /*if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-
-
-            if ((int) (System.currentTimeMillis()) - this.mouseTimer > this.mouseDelay) {
-                //System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
-
-                this.mouseTimer = (int) System.currentTimeMillis();
-            }
-        }*/
         
         this.dt = (int)System.currentTimeMillis();
        
@@ -66,11 +54,41 @@ public class ijdkwtd extends Game implements InputProcessor{
 
     @Override
     public boolean keyDown(int keycode) {
+    	
+    	switch(keycode)
+    	{
+    	case Keys.RIGHT:
+    		this.player.move(700, 0);
+    		break;
+    		
+    	case Keys.LEFT:
+    		this.player.move(-700, 0);
+    		break;
+    		
+    	default:
+    		break;
+    	}
+    	
         return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
+    	
+    	switch(keycode)
+    	{
+    	case Keys.RIGHT:
+    		this.player.move(0, 0);
+    		break;
+    		
+    	case Keys.LEFT:
+    		this.player.move(0, 0);
+    		break;
+    		
+    	default:
+    		break;
+    	}
+    	
         return false;
     }
 
