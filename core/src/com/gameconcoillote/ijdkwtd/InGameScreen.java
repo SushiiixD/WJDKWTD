@@ -11,13 +11,16 @@ public class InGameScreen implements Screen{
 	private ArrayList<Background> level = new  ArrayList<Background>();
 	private Player player;
 	private SpriteBatch batch = new SpriteBatch();
+	private ijdkwtd game;
 	
-	public InGameScreen(){
-	        //player
-	        this.player = new Player();
-	        entities.add(this.player);
-	        //background
-	        level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
+	public InGameScreen(ijdkwtd game){
+		//player
+		this.player = new Player();
+		entities.add(this.player);
+
+		//background
+		level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
+		this.game = game;
 	}	 
     @Override
     public void render(float delta){       

@@ -13,7 +13,7 @@ public class ijdkwtd extends Game implements InputProcessor{
       
     @Override
     public void create(){
-        inGameScreen = new InGameScreen();
+        inGameScreen = new InGameScreen(this);
         Gdx.input.setInputProcessor(this);       
     }
     @Override
