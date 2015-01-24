@@ -10,10 +10,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class AnimatedTexture implements Runnable
 {
-	private ArrayList<Texture> textures = new ArrayList<Texture>();
-	private int t;
+	private ArrayList<Texture> textures = new ArrayList<Texture>();//all the frame
+	private int t;//index of the current frame (t as Time)
 	private Thread thread = new Thread(this);
-	private int delay;
+	private int delay;//delay between two frame
 	
 	public AnimatedTexture(Texture t,int delay)
 	{
@@ -26,7 +26,7 @@ public class AnimatedTexture implements Runnable
 	
 	public AnimatedTexture(Texture t)
 	{
-		this(t,250);
+		this(t,100);
 	
 		
 	}

@@ -7,8 +7,8 @@ import com.gameconcoillote.ijdkwtd.ijdkwtd;
 
 public class DesktopLauncher {
 	
-	public final static int WIDTH = 1024;
-	public final static int HEIGHT = 768;
+	public final static int WIDTH = 1600;
+	public final static int HEIGHT = 900;
 
 	
 	

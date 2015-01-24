@@ -13,13 +13,17 @@ public class Player extends Entity
 	
 	public Player(int x,int y)
 	{
-		super(new Texture(Gdx.files.internal("Ghost_Character.png")),x,y);
+		super(new Texture(Gdx.files.internal("animWalk/Walk-Character1.png")),x,y);
 		
-		this.texture.addTexture(
-				new Texture(Gdx.files.internal("sammy2.png"))
-				);
+		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character2.png")));
+		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character3.png")));
+		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character3-2.png")));
+		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character3-3.png")));
+		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character4.png")));
+		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character5.png")));
+		this.texture.addTexture(new Texture(Gdx.files.internal("animWalk/Walk-Character5-1.png")));
 		
-		this.move(1,0);
+		this.move(700,0);
 	}
 	
 }

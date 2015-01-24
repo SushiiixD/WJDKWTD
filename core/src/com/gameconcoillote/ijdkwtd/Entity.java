@@ -31,7 +31,7 @@ public class Entity
 		
 		this.sprite = new SpriteBatch();
 		this.box = new Rectangle(x,y,0,0);
-		this.speed = new Vector2(0,0);
+		this.speed = new Vector2(5,5);//default speed of 5px/s
 		this.move = new Vector2(0,0);
 		
 	}
@@ -44,6 +44,7 @@ public class Entity
 		sprite.end();
 	}
 	
+	//move the entity of Xpx et Ypx per seconds
 	public void move(int x, int y)
 	{
 		this.move.x = x;
@@ -51,12 +52,15 @@ public class Entity
 	}
 	
 	
-	public void update()
+	public void update(int dt)
 	{
-		this.box.x += this.move.x;
-		this.box.y += this.move.y;
+		//compute the speed  considering the gameloop
+		if(dt < 100000)//avoid dt error (if too big it cause bugs)
+		{
+			this.box.x += (this.move.x * dt)/1000;
+			this.box.y += (this.move.y * dt)/1000;
+		}
 		
-		//this.texture.update();
 	}
 	
 	
