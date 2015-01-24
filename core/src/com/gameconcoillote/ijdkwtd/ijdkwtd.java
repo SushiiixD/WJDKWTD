@@ -1,15 +1,11 @@
 package com.gameconcoillote.ijdkwtd;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Gdx;
 
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 
 
 public class ijdkwtd extends Game implements InputProcessor{
