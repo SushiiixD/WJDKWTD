@@ -1,6 +1,10 @@
 package com.gameconcoillote.ijdkwtd;
 
+import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -11,7 +15,9 @@ public class Entity
 	//the box around the entity
 	private Rectangle box;
 	//the picture of the entity
-	private Texture texture;
+	protected ArrayList<AnimatedTexture> textures = new ArrayList<AnimatedTexture>();
+	//the current animation
+	protected int currentAnim;
 	//the sprite of the entity
 	private SpriteBatch sprite;
 	//max movement speed
@@ -27,10 +33,12 @@ public class Entity
 	
 	public Entity(Texture t,int x,int y)
 	{
-		this.texture = t;
+		this.textures .add(new AnimatedTexture(t));
+		this.currentAnim = 0;
 		this.sprite = new SpriteBatch();
+		
 		this.box = new Rectangle(x,y,0,0);
-		this.speed = new Vector2(0,0);
+		this.speed = new Vector2(5,5);//default speed of 5px/s
 		this.move = new Vector2(0,0);
 		
 	}
@@ -39,10 +47,11 @@ public class Entity
 	public void draw()
 	{
 		sprite.begin();
-		sprite.draw(this.texture, box.x, box.y);
+		sprite.draw(this.textures.get(this.currentAnim).getCurrentTexture(), box.x, box.y);
 		sprite.end();
 	}
 	
+	//move the entity of Xpx et Ypx per seconds
 	public void move(int x, int y)
 	{
 		this.move.x = x;
@@ -50,10 +59,43 @@ public class Entity
 	}
 	
 	
-	public void update()
+	public void update(int dt)
 	{
-		this.box.x += this.move.x;
-		this.box.y += this.move.y;
+		//compute the speed  considering the gameloop
+		if(dt < 1000)//avoid dt error (if too big it will cause bugs)
+		{
+			this.box.x += (this.move.x * dt)/1000;
+			this.box.y += (this.move.y * dt)/1000;
+			
+			
+		}
+		
+	}
+	
+	public void changeAnimation(int animIndex)
+	{
+		if(animIndex < this.textures.size())
+		{
+			this.currentAnim = animIndex;
+		}
+		
+	}
+	
+	public AnimatedTexture getAnim(int animIndex)
+	{
+		return this.textures.get(animIndex);
+	}
+	
+	public void addTextureInAnim(Texture t,int animIndex)
+	{
+		if(animIndex < this.textures.size())
+		{
+			this.textures.get(animIndex).addTexture(t);
+		}
+		else//in case we try to access to a none definited animation
+		{
+			this.textures.add(new AnimatedTexture(t));
+		}
 	}
 	
 	

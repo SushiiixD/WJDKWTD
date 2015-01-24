@@ -12,15 +12,14 @@ public class DesktopLauncher {
 
 	
 	
-	public static void main (String[] arg) {
+	public static void main (String[] arg)
+	{
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title="GAME JAM: IJDKWIAD";
 		config.width=WIDTH;
 		config.height=HEIGHT;
 		new LwjglApplication(new ijdkwtd(), config);
 
-
-		
 		
 	}
 }
