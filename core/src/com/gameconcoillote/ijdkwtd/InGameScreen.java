@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class InGameScreen implements Screen{
  
@@ -12,7 +13,7 @@ public class InGameScreen implements Screen{
     private ArrayList<Entity> entities = new  ArrayList<Entity>();
 	private ArrayList<Background> level = new  ArrayList<Background>();
 	private Player player;
-
+	private SpriteBatch batch = new SpriteBatch();
 	
 	    public InGameScreen()
 	    {
@@ -32,13 +33,13 @@ public class InGameScreen implements Screen{
     	for(Background bg: this.level)
         {
         	bg.update((int)delta);
-        	bg.draw();
+        	bg.draw(this.batch);
         }
         
         for(Entity e: entities)
         {
         	e.update((int)delta);
-        	e.draw();
+        	e.draw(this.batch);
         }
 
     }

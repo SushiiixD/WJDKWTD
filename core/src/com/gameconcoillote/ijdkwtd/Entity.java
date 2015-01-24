@@ -16,8 +16,6 @@ public class Entity
 	protected ArrayList<AnimatedTexture> textures = new ArrayList<AnimatedTexture>();
 	//the current animation
 	protected int currentAnim;
-	//the sprite of the entity
-	private SpriteBatch sprite;
 	//max movement speed
 	protected Vector2 speed;
 	//current movement speed
@@ -33,7 +31,6 @@ public class Entity
 	{
 		this.textures .add(new AnimatedTexture(t));
 		this.currentAnim = 0;
-		this.sprite = new SpriteBatch();
 		
 		this.box = new Rectangle(x,y,0,0);
 		this.speed = new Vector2(100,100);//default speed of 5px/s
@@ -42,7 +39,7 @@ public class Entity
 	}
 	
 	//draw the entity on the screen
-	public void draw()
+	public void draw(SpriteBatch sprite)
 	{
 		sprite.begin();
 		sprite.draw(this.textures.get(this.currentAnim).getCurrentTexture(), box.x, box.y);
