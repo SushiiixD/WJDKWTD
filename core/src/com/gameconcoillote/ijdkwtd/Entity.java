@@ -20,7 +20,7 @@ public class Entity
 	protected int currentAnim;
 	//the sprite of the entity
 	private SpriteBatch sprite;
-	//max movement spped
+	//max movement speed
 	private Vector2 speed;
 	//current movement speed
 	private Vector2 move;
