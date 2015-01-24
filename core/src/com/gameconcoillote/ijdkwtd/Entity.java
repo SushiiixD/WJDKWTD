@@ -11,7 +11,7 @@ public class Entity
 	//the box around the entity
 	private Rectangle box;
 	//the picture of the entity
-	private Texture texture;
+	protected AnimatedTexture texture;
 	//the sprite of the entity
 	private SpriteBatch sprite;
 	//max movement spped
@@ -27,7 +27,9 @@ public class Entity
 	
 	public Entity(Texture t,int x,int y)
 	{
-		this.texture = t;
+		this.texture = new AnimatedTexture(t);
+		//this.texture.addTexture(t);
+		
 		this.sprite = new SpriteBatch();
 		this.box = new Rectangle(x,y,0,0);
 		this.speed = new Vector2(0,0);
@@ -39,7 +41,7 @@ public class Entity
 	public void draw()
 	{
 		sprite.begin();
-		sprite.draw(this.texture, box.x, box.y);
+		sprite.draw(this.texture.getCurrentTexture(), box.x, box.y);
 		sprite.end();
 	}
 	
@@ -54,6 +56,8 @@ public class Entity
 	{
 		this.box.x += this.move.x;
 		this.box.y += this.move.y;
+		
+		this.texture .update();
 	}
 	
 	

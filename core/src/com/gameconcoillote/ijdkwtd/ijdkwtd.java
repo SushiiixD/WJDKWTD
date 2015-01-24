@@ -37,11 +37,11 @@ public class ijdkwtd extends Game{
         }
 
         if(Gdx.input.isTouched()) {
-            try {
+            /*try {
                 Thread.sleep(200);
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
-            }
+            }*/
             System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
         }
     }
