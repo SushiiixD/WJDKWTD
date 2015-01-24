@@ -14,7 +14,7 @@ public class Entity
 	private Texture texture;
 	//the sprite of the entity
 	private SpriteBatch sprite;
-	//max movement spped
+	//max movement speed
 	private Vector2 speed;
 	//current movement speed
 	private Vector2 move;
