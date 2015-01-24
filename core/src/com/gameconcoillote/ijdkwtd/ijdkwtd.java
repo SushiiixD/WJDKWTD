@@ -11,9 +11,9 @@ import com.badlogic.gdx.Input;
 public class ijdkwtd extends Game{
 	Screen inGameScreen;
 	private ArrayList<Entity> entities = new  ArrayList<Entity>();
-    private int mouseLeftClickedPositionX;
-    private int mouseLeftClickedPositionY;
-    
+
+    private int mouseTimer;
+    private int mouseDelay;
     //main game loop time
     private int dt;
     
@@ -24,13 +24,16 @@ public class ijdkwtd extends Game{
         
         Player p = new Player();
         entities.add(p);
+        
+        this.mouseTimer = (int)System.currentTimeMillis();
+        this.mouseDelay = 200;
     }
 
     @Override
     public void render()
     {       
     	
-    	 this.dt =(int)(System.currentTimeMillis() - this.dt);
+    	this.dt =(int)(System.currentTimeMillis() - this.dt);
         super.render();
         
         for(Entity e: entities)
@@ -42,11 +45,13 @@ public class ijdkwtd extends Game{
 
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
-            if (mouseLeftClickedPositionX != Gdx.input.getX() || mouseLeftClickedPositionY != Gdx.input.getY())
-            {
-                mouseLeftClickedPositionX = Gdx.input.getX();
-                mouseLeftClickedPositionY = Gdx.input.getY();
+        	
+            
+            if((int)(System.currentTimeMillis()) - this.mouseTimer > this.mouseDelay)
+        	{
                 System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
+               
+                this.mouseTimer = (int)System.currentTimeMillis();
             }
 
         }
