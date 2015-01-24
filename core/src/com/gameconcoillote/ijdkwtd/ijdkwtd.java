@@ -14,9 +14,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class ijdkwtd extends Game implements InputProcessor{
 	Screen inGameScreen;
-	private ArrayList<Entity> entities = new  ArrayList<Entity>();
-	private ArrayList<Background> level = new  ArrayList<Background>();
-	private Player player;
+	
 	
     //main game loop time
     private int dt;
@@ -25,13 +23,6 @@ public class ijdkwtd extends Game implements InputProcessor{
     @Override
     public void create () {
         inGameScreen = new InGameScreen();
-
-        //player
-        this.player = new Player();
-        entities.add(this.player);
-        
-        //background
-        level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
 
         Gdx.input.setInputProcessor(this);
         
@@ -47,18 +38,8 @@ public class ijdkwtd extends Game implements InputProcessor{
     	this.dt =(int)(System.currentTimeMillis() - this.dt);
     	
         super.render();
+        this.inGameScreen.render(dt);
         
-        for(Background bg: this.level)
-        {
-        	bg.update(this.dt);
-        	bg.draw();
-        }
-        
-        for(Entity e: entities)
-        {
-        	e.update(this.dt);
-        	e.draw();
-        }
         
         
         
@@ -68,9 +49,9 @@ public class ijdkwtd extends Game implements InputProcessor{
     }
 
     @Override
-    public boolean keyDown(int keycode)
-    {
+    public boolean keyDown(int keycode) {
     	
+    
         return false;
     }
 
@@ -91,13 +72,13 @@ public class ijdkwtd extends Game implements InputProcessor{
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         //System.out.println("Mouse coords:" + screenX + " " + screenY);
-    	this.player.move(screenX, screenY);
+    	((InGameScreen) this.inGameScreen).getPlayer().move(screenX, screenY);
         return false;
     }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-    	this.player.changeAnimation(0);
+    	((InGameScreen) this.inGameScreen).getPlayer().changeAnimation(0);
         return false;
     }
 

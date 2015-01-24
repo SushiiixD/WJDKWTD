@@ -1,28 +1,57 @@
 package com.gameconcoillote.ijdkwtd;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class InGameScreen implements Screen{
  
-    private SpriteBatch batch;
-    private BitmapFont font;
     
+    private ArrayList<Entity> entities = new  ArrayList<Entity>();
+	private ArrayList<Background> level = new  ArrayList<Background>();
+	private Player player;
 
+	
+	    public InGameScreen()
+	    {
+
+	        //player
+	        this.player = new Player();
+	        entities.add(this.player);
+	        
+	        //background
+	        level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
+
+	    }
+	 
     @Override
-    public void render(float delta) {
+    public void render(float delta)
+    {
          
-        Gdx.gl.glClearColor(0,0,0,0);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);        
-        batch.begin();
-        font.draw(batch, "Bienvenue dans WJDKWTD",50,Gdx.graphics.getHeight()-50);
-        batch.end();  
+    	for(Background bg: this.level)
+        {
+        	bg.update((int)delta);
+        	bg.draw();
+        }
+        
+        for(Entity e: entities)
+        {
+        	e.update((int)delta);
+        	e.draw();
+        }
 
     }
      
+    public Player getPlayer()
+    {
+    	return this.player;
+    }
+    
     @Override
     public void resize(int width, int height) {
         // TODO Auto-generated method stub
@@ -31,8 +60,7 @@ public class InGameScreen implements Screen{
  
     @Override
     public void show() {
-        batch = new SpriteBatch();
-        font = new BitmapFont();
+        
     }
 
 	@Override
