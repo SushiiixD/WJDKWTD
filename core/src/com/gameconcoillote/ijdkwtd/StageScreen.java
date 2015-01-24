@@ -7,7 +7,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class StageScreen implements Screen {
 	Stage stage;
-	
+	private ijdkwtd game;
+
+	public StageScreen(ijdkwtd game){
+		stage=new Stage();
+		this.game = game;
+	}
+
 	@Override
 	public void show(){
 		stage=new Stage();
