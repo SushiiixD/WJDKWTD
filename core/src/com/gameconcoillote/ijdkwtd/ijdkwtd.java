@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 
 
 public class ijdkwtd extends Game{
 	Screen inGameScreen;
 	private ArrayList<Entity> entities = new  ArrayList<Entity>();
+    private int mouseLeftClickedPositionX;
+    private int mouseLeftClickedPositionY;
     @Override
     public void create () {
         inGameScreen = new InGameScreen();
@@ -36,6 +39,7 @@ public class ijdkwtd extends Game{
         	e.draw();
         }
 
+<<<<<<< HEAD
         if(Gdx.input.isTouched()) {
             /*try {
                 Thread.sleep(200);
@@ -43,6 +47,14 @@ public class ijdkwtd extends Game{
                 Thread.currentThread().interrupt();
             }*/
             System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
+=======
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            if (mouseLeftClickedPositionX != Gdx.input.getX() || mouseLeftClickedPositionY != Gdx.input.getY()) {
+                mouseLeftClickedPositionX = Gdx.input.getX();
+                mouseLeftClickedPositionY = Gdx.input.getY();
+                System.out.println("Mouse: x=" + Gdx.input.getX() + " y=" + Gdx.input.getY());
+            }
+>>>>>>> 20e4937f3236f1bb2bff5a510752bebe690be62c
         }
     }
         
