@@ -18,6 +18,7 @@ public class Player extends Entity
 		this.texture.addTexture(
 				new Texture(Gdx.files.internal("sammy2.png"))
 				);
+		
 		this.move(1,0);
 	}
 	

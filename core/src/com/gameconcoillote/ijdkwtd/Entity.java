@@ -56,7 +56,7 @@ public class Entity
 		this.box.x += this.move.x;
 		this.box.y += this.move.y;
 		
-		this.texture .update();
+		//this.texture.update();
 	}
 	
 	

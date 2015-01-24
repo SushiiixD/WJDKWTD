@@ -8,15 +8,26 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class AnimatedTexture 
+public class AnimatedTexture implements Runnable
 {
 	private ArrayList<Texture> textures = new ArrayList<Texture>();
 	private int t;
+	private Thread thread = new Thread(this);
+	private int delay;
 	
-	public AnimatedTexture(Texture t)
+	public AnimatedTexture(Texture t,int delay)
 	{
 		this.textures.add(t);
 		this.t=0;
+		this.delay = delay;
+		this.thread.start();
+		
+	}
+	
+	public AnimatedTexture(Texture t)
+	{
+		this(t,250);
+	
 		
 	}
 	
@@ -25,7 +36,7 @@ public class AnimatedTexture
 		
 		try
 		{
-			Thread.sleep(500);
+			this.thread.sleep(this.delay);
 		
 			this.t++;
 			if(this.t >= textures.size()) this.t=0;
@@ -47,5 +58,14 @@ public class AnimatedTexture
 	public void addTexture(Texture tex)
 	{
 		this.textures.add(tex);
+	}
+
+	@Override
+	public void run() {
+		while(true)
+		{
+			update();
+		}
+		
 	}
 }
