@@ -6,8 +6,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Gdx;
-//import com.badlogic.gdx.Input;
-
 
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
@@ -76,12 +74,12 @@ public class ijdkwtd extends Game implements InputProcessor{
     	{
     	case Keys.RIGHT:
     		this.player.move(700, 0);
-    		this.player.changeAnimation(1);;
+    		this.player.changeAnimation(1);
     		break;
     		
     	case Keys.LEFT:
     		this.player.move(-700, 0);
-    		this.player.changeAnimation(2);;
+    		this.player.changeAnimation(2);
     		break;
     		
     	default:
@@ -100,7 +98,7 @@ public class ijdkwtd extends Game implements InputProcessor{
     	case Keys.RIGHT:		
     	case Keys.LEFT:
     		this.player.move(0, 0);
-    		this.player.changeAnimation(0);;
+    		this.player.changeAnimation(0);
     		break;
     		
     	case Keys.ESCAPE:
@@ -111,7 +109,7 @@ public class ijdkwtd extends Game implements InputProcessor{
     		
     	default:
     		this.player.move(0, 0);
-    		this.player.changeAnimation(0);;
+    		this.player.changeAnimation(0);
     		break;
     	}
     	
