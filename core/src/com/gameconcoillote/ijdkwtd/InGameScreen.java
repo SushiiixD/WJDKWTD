@@ -17,7 +17,6 @@ public class InGameScreen implements Screen{
 		//player
 		this.player = new Player();
 		entities.add(this.player);
-
 		//background
 		level.add(new Background(new Texture(Gdx.files.internal("Background1.jpg"))));
 		this.game = game;
